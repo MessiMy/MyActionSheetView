@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface MyActionSheetView : UIView
-
+- (instancetype)initWithTitleView:(UIView *)titleView
+                        optionArr:(NSArray *)optionArr
+                      cancelTitle:(NSString *)cancelTitle
+                    selectedBlock:(void(^)(NSInteger))selectedBlock
+                      cancelBlock:(void(^)())cancelBlock;
 @end

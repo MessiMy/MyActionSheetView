@@ -30,9 +30,10 @@
 -(UIView *)maskView
 {
     if (_maskView == nil) {
-        _maskView = [[UIView alloc] initWithFrame:self.bounds];
+        _maskView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         _maskView.backgroundColor = [UIColor blackColor];
-        _maskView.alpha = 0.75;
+        _maskView.alpha = 0.5;
+        _maskView.userInteractionEnabled = YES;
     }
     return _maskView;
 }
@@ -47,8 +48,11 @@
         _contentView.dataSource = self;
         _contentView.layer.cornerRadius = 10;
         _contentView.layer.masksToBounds = YES;
+        _contentView.rowHeight = 44.0;
+        _contentView.separatorInset = UIEdgeInsetsMake(0, -50, 0, 0);
+        _contentView.tableHeaderView = self.headView;
         _contentView.backgroundColor = [UIColor clearColor];
-        [_contentView registerNib:[UINib nibWithNibName:@"ActionSheetViewCell" bundle:nil] forCellReuseIdentifier:@"ActionSheetViewCell"];
+        [_contentView registerNib:[UINib nibWithNibName:@"ActionSheetViewwCell" bundle:nil] forCellReuseIdentifier:@"ActionSheetViewCell"];
     }
     return _contentView;
 }
@@ -63,8 +67,8 @@
         _headView = titleView;
         _dataArray = optionArr;
         _cancelTitle = cancelTitle;
-        self.selectedBlock = selectedBlock;
-        self.cancelBlock = cancelBlock;
+        _selectedBlock = selectedBlock;
+        _cancelBlock = cancelBlock;
         [self initUI];
     }
     return self;
@@ -72,6 +76,7 @@
 #pragma mark - initView
 - (void)initUI
 {
+    self.frame = [UIScreen mainScreen].bounds;
     [self addSubview:self.maskView];
     [self addSubview:self.contentView];
 }
@@ -89,9 +94,9 @@
     ActionSheetViewwCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActionSheetViewCell"];
     if (indexPath.section == 0) {
         cell.nameLab.text = self.dataArray[indexPath.row];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        //cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (indexPath.row == self.dataArray.count - 1) {
-            UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, ScreenWidth - SPACE *2, tableView.rowHeight) byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 20)];
+            UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, ScreenWidth - SPACE *2, tableView.rowHeight) byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];
             CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
             maskLayer.frame = cell.contentView.bounds;
             maskLayer.path = maskPath.CGPath;
@@ -101,7 +106,7 @@
         
     }
     cell.nameLab.text = self.cancelTitle;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.layer.cornerRadius = 10;
     cell.layer.masksToBounds = YES;
     return cell;
@@ -122,6 +127,10 @@
 {
     return SPACE;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.001;
+}
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, SPACE)];
@@ -136,7 +145,7 @@
 #pragma mark - 显示
 - (void)show
 {
-    _contentView.frame = CGRectMake(SPACE, ScreenHeight, ScreenWidth - SPACE *2, _contentView.rowHeight * (self.dataArray.count + 1) + _headView.frame.size.height + SPACE * 2);
+    _contentView.frame = CGRectMake(SPACE, ScreenHeight, ScreenWidth - SPACE *2, _contentView.rowHeight * (self.dataArray.count + 1) + _headView.bounds.size.height + SPACE * 2);
     [UIView animateWithDuration:0.5 animations:^{
         CGRect rect = _contentView.frame;
         rect.origin.y -= _contentView.bounds.size.height;
