@@ -13,6 +13,9 @@
 		0F728D321ED3FDF300D10210 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F728D301ED3FDF300D10210 /* Main.storyboard */; };
 		0F728D341ED3FDF300D10210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F728D331ED3FDF300D10210 /* Assets.xcassets */; };
 		0F728D371ED3FDF300D10210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F728D351ED3FDF300D10210 /* LaunchScreen.storyboard */; };
+		0F728D401ED4017B00D10210 /* MyActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F728D3F1ED4017B00D10210 /* MyActionSheetView.m */; };
+		0F728D441ED4051500D10210 /* ActionSheetViewwCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F728D421ED4051500D10210 /* ActionSheetViewwCell.m */; };
+		0F728D451ED4051500D10210 /* ActionSheetViewwCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F728D431ED4051500D10210 /* ActionSheetViewwCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,11 @@
 		0F728D331ED3FDF300D10210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F728D361ED3FDF300D10210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F728D381ED3FDF300D10210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F728D3E1ED4017B00D10210 /* MyActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyActionSheetView.h; sourceTree = "<group>"; };
+		0F728D3F1ED4017B00D10210 /* MyActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyActionSheetView.m; sourceTree = "<group>"; };
+		0F728D411ED4051500D10210 /* ActionSheetViewwCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetViewwCell.h; sourceTree = "<group>"; };
+		0F728D421ED4051500D10210 /* ActionSheetViewwCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetViewwCell.m; sourceTree = "<group>"; };
+		0F728D431ED4051500D10210 /* ActionSheetViewwCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionSheetViewwCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,11 @@
 			children = (
 				0F728D2A1ED3FDF300D10210 /* AppDelegate.h */,
 				0F728D2B1ED3FDF300D10210 /* AppDelegate.m */,
+				0F728D3E1ED4017B00D10210 /* MyActionSheetView.h */,
+				0F728D3F1ED4017B00D10210 /* MyActionSheetView.m */,
+				0F728D411ED4051500D10210 /* ActionSheetViewwCell.h */,
+				0F728D421ED4051500D10210 /* ActionSheetViewwCell.m */,
+				0F728D431ED4051500D10210 /* ActionSheetViewwCell.xib */,
 				0F728D2D1ED3FDF300D10210 /* ViewController.h */,
 				0F728D2E1ED3FDF300D10210 /* ViewController.m */,
 				0F728D301ED3FDF300D10210 /* Main.storyboard */,
@@ -140,6 +153,7 @@
 			files = (
 				0F728D371ED3FDF300D10210 /* LaunchScreen.storyboard in Resources */,
 				0F728D341ED3FDF300D10210 /* Assets.xcassets in Resources */,
+				0F728D451ED4051500D10210 /* ActionSheetViewwCell.xib in Resources */,
 				0F728D321ED3FDF300D10210 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +167,8 @@
 			files = (
 				0F728D2F1ED3FDF300D10210 /* ViewController.m in Sources */,
 				0F728D2C1ED3FDF300D10210 /* AppDelegate.m in Sources */,
+				0F728D401ED4017B00D10210 /* MyActionSheetView.m in Sources */,
+				0F728D441ED4051500D10210 /* ActionSheetViewwCell.m in Sources */,
 				0F728D291ED3FDF300D10210 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
